@@ -85,3 +85,11 @@ Bu proje, turistik mekanların bilgilerini etkin bir şekilde yönetmek ve tanı
 ### N:M İlişkiler
 
 - Mekanlar ve kategoriler arasında N:M ilişkisi olabilir. Bir önemli nokta birden fazla kategoriye ait olabilir.
+
+
+## E-R Diyagramı
+
+![image](https://github.com/user-attachments/assets/ae49389f-cca1-4ad7-afa4-0013969775f5)
+
+
+
