@@ -1,6 +1,6 @@
 # Turistik Yerler Bilgi Sistemi Projesi
 
-Bu proje, turistik mekanların bilgilerini etkin bir şekilde yönetmek ve tanıtmak amacıyla geliştirildi. Sistemin kullanıcı dostu arayüzü, hem yerel hem de yabancı turistlerin bilgilere rahatça erişimini mümkün kılarak turizm deneyimini zenginleştirecektir. Ayrıca, turistlerin ihtiyaçlarına hızlı ve etkili çözümler sunarak, turizm sektöründe daha dinamik bir bilgi akışı sağlayacaktır.
+Bu proje, turistik mekanların bilgilerini etkin bir şekilde yönetmek ve tanıtmak amacıyla geliştirildi. Sistemin kullanıcı dostu olması, hem yerel hem de yabancı turistlerin bilgilere rahatça erişimini mümkün kılarak turizm deneyimini zenginleştirecektir. Ayrıca, turistlerin ihtiyaçlarına hızlı ve etkili çözümler sunarak, turizm sektöründe daha dinamik bir bilgi akışı sağlayacaktır.
 
 ## Ekip Üyeleri
 
