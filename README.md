@@ -89,7 +89,7 @@ Bu proje, turistik mekanların bilgilerini etkin bir şekilde yönetmek ve tanı
 
 ## E-R Diyagramı
 
-![image](https://github.com/user-attachments/assets/ae49389f-cca1-4ad7-afa4-0013969775f5)
 
+![Ekran görüntüsü 2025-01-04 124950](https://github.com/user-attachments/assets/86170a2c-1c0b-4738-873b-204b81851d5f)
 
 
