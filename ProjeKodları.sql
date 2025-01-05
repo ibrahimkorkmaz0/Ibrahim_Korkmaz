@@ -176,6 +176,70 @@ INSERT INTO Puanlar (MekanID, KullaniciID, Puan) VALUES
 (10, 10, 5);
 
 
+-- SORGULAMA KOMUTLARI
+
+-- Belirli bir ilçedeki mekanlarýn listesini getirmek ve kategorilerine göre gruplama
+SELECT I.IlceAdi, M.MekanAdi, K.KategoriAdi
+FROM Mekanlar M
+JOIN Ilceler I ON M.IlceID = I.ID
+JOIN Kategoriler K ON M.KategoriID = K.ID
+WHERE I.IlceAdi = 'Çankaya'
+ORDER BY K.KategoriAdi, M.MekanAdi;
+
+
+-- Her þehirde bulunan toplam mekan sayýsýný bulma
+SELECT S.SehirAdi, COUNT(M.ID) AS ToplamMekan
+FROM Sehirler S
+JOIN Ilceler I ON S.ID = I.SehirID
+JOIN Mekanlar M ON I.ID = M.IlceID
+GROUP BY S.SehirAdi
+ORDER BY ToplamMekan DESC;
+
+
+-- Her mekan için verilen ortalama puaný bulma ve puana göre sýralama
+SELECT M.MekanAdi, AVG(P.Puan) AS OrtalamaPuan
+FROM Mekanlar M
+JOIN Puanlar P ON M.ID = P.MekanID
+GROUP BY M.MekanAdi
+ORDER BY OrtalamaPuan DESC;
+
+
+
+-- Kategoriye göre ortalama puan bulma
+SELECT KategoriID, AVG(OrtalamaPuan) AS OrtalamaPuan
+FROM Mekanlar
+GROUP BY KategoriID
+ORDER BY OrtalamaPuan DESC;
+
+
+
+-- Kullanýcýlarýn yaptýðý yorum sayýsýný bulma 
+SELECT K.KullaniciAdi, COUNT(Y.ID) AS YorumSayisi
+FROM Kullanicilar K
+JOIN Yorumlar Y ON K.ID = Y.KullaniciID
+GROUP BY K.KullaniciAdi
+ORDER BY YorumSayisi DESC;
+
+
+
+-- Belli bir tarihten sonra yapýlan yorumlarý bulma
+SELECT Y.YorumMetni, Y.Tarih, M.MekanAdi, K.KullaniciAdi
+FROM Yorumlar Y
+JOIN Mekanlar M ON Y.MekanID = M.ID
+JOIN Kullanicilar K ON Y.KullaniciID = K.ID
+WHERE Y.Tarih > '2023-12-05'
+ORDER BY Y.Tarih DESC;
+
+
+-- Her kullanýcýnýn yaptýðý yorumlar ve verdiði puanlarýn ortalamasýný bulma
+SELECT K.KullaniciAdi, AVG(P.Puan) AS OrtalamaPuan, COUNT(Y.ID) AS YorumSayisi
+FROM Kullanicilar K
+LEFT JOIN Yorumlar Y ON K.ID = Y.KullaniciID
+LEFT JOIN Puanlar P ON K.ID = P.KullaniciID
+GROUP BY K.KullaniciAdi
+ORDER BY OrtalamaPuan DESC;
+
+
 
 -- STORE PROCEDURES
 
