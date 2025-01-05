@@ -1,6 +1,8 @@
-# Turistik Yerler Bilgi Sistemi Projesi
+# Şehir Rehberi Projesi
 
-Bu proje, turistik mekanların bilgilerini etkin bir şekilde yönetmek ve tanıtmak amacıyla geliştirildi. Sistemin kullanıcı dostu olması, hem yerel hem de yabancı turistlerin bilgilere rahatça erişimini mümkün kılarak turizm deneyimini zenginleştirecektir. Ayrıca, turistlerin ihtiyaçlarına hızlı ve etkili çözümler sunarak, turizm sektöründe daha dinamik bir bilgi akışı sağlayacaktır.
+Bu proje, turistik mekanlar hakkında bilgi sağlamak ve bu mekanları etkili bir şekilde tanıtmak amacıyla tasarlandı. Kullanıcılar, ilgi alanlarına göre önerilen mekanlar sayesinde, gezilecek yerler hakkında detaylı bilgilere ulaşabilir. Ayrıca, sistemde yer alan etkinlikler bölümü, kullanıcıların ziyaret edecekleri bölgelerde düzenlenen etkinlikleri görmelerine olanak tanır. Bu sayede, kullanıcılar seyahatlerini bu etkinliklere göre planlayarak daha keyifli bir deneyim yaşayabilir.
+
+Projenin amacı, hem turizm işletmelerinin tanıtımını desteklemek hem de turistlerin seyahatlerini kolaylaştırarak daha bilinçli, planlı ve verimli bir şekilde geçirmelerine yardımcı olmaktır. 
 
 ## Ekip Üyeleri
 
@@ -12,66 +14,115 @@ Bu proje, turistik mekanların bilgilerini etkin bir şekilde yönetmek ve tanı
 
 ### Kullanıcı Gereksinimleri
 
-- Şehir ve ilçe bazında arama yapabilme
-- Mekanları kategoriye göre filtreleme
-- Mekanlara yorum yapma ve puan verme
-- Favori mekanlarını kaydetme
+•	Şehir ve ilçe bazında arama yapabilme
+
+•	Mekanları kategoriye göre filtreleme
+
+•	Mekanlara yorum yapma ve puan verme
+
+•	Favori mekanlarını kaydetme
+
+•	Etkinlikleri takip edebilme
+
+•	Kullanıcı profili oluşturma ve yönetme
 
 ### Yönetici Gereksinimleri
 
-- Şehir, ilçe, önemli nokta, kategori ve kullanıcı bilgilerini ekleme, düzenleme ve silme
-- Etkinlik bilgilerini ekleyip düzenleme
-- Kullanıcı geri bildirimlerini izleyip analiz etme
+•	Şehir, ilçe, önemli nokta, kategori ve kullanıcı bilgilerini ekleme, düzenleme ve silme
+
+•	Etkinlik bilgilerini ekleyip düzenleme
+
+•	Kullanıcı geri bildirimlerini izleyip analiz etme
+
+•	Sistem performansını izleme ve optimize etme
+
+•	Raporlama ve analiz araçları
+
+•	Güvenlik ve veri bütünlüğünü sağlama
+
 
 ## Varlıklar ve Özellikleri
 
-1. **Şehirler**
-   - `ID` (Primary Key)
-   - `Şehir Adı` (Unique, NOT NULL)
+1. ***Şehirler (Cities)***
+   
+-  ID (Primary Key)
 
-2. **İlçeler**
-   - `ID` (Primary Key)
-   - `İlçe Adı` (Unique, NOT NULL)
-   - `Şehir ID` (Foreign Key, NOT NULL)
+-  ŞehirAdi (City Name)
 
-3. **Mekanlar**
-   - `ID` (Primary Key)
-   - `Nokta Adı` (NOT NULL)
-   - `İlçe ID` (Foreign Key, NOT NULL)
-   - `Kategori ID` (Foreign Key, NOT NULL)
-   - `Adres` (NOT NULL)
-   - `Telefon`
-   - `Açıklama`
+2. ***İlçeler (Districts)***
+   
+ - 	ID (Primary Key)
 
-4. **Kategoriler**
-   - `ID` (Primary Key)
-   - `Kategori Adı` (Unique, NOT NULL)
+ - 	İlçeAdi (District Name)
 
-5. **Kullanıcılar**
-   - `ID` (Primary Key)
-   - `Kullanıcı Adı` (Unique, NOT NULL)
-   - `Şifre` (NOT NULL)
-   - `E-posta` (Unique, NOT NULL)
+ - 	ŞehirID (Foreign Key)
 
-6. **Yorumlar**
-   - `ID` (Primary Key)
-   - `Önemli Nokta ID` (Foreign Key, NOT NULL)
-   - `Kullanıcı ID` (Foreign Key, NOT NULL)
-   - `Yorum Metni` (NOT NULL)
-   - `Tarih` (NOT NULL)
+3. ***Kategoriler (Categories)***
+   
+ - 	ID (Primary Key)
 
-7. **Etkinlikler**
-   - `ID` (Primary Key)
-   - `Etkinlik Adı` (NOT NULL)
-   - `Tarih` (NOT NULL)
-   - `İlçe ID` (Foreign Key, NOT NULL)
-   - `Adres`
+ - 	KategoriAdi (Category Name)
 
-8. **Puanlar**
-   - `ID` (Primary Key)
-   - `Önemli Nokta ID` (Foreign Key, NOT NULL)
-   - `Kullanıcı ID` (Foreign Key, NOT NULL)
-   - `Puan` (1-5, NOT NULL)
+4. ***Kullanıcılar (Users)***
+   
+ - 	ID (Primary Key)
+
+ - 	KullanıcıAdi (User Name)
+
+ - 	Şifre (Password)
+
+ - 	Eposta (Email)
+
+5. ***Mekanlar (Places)***
+    
+ - 	ID (Primary Key)
+
+ - 	MekanAdi (Place Name)
+
+ - 	İlçeID (Foreign Key)
+
+ - 	KategoriID (Foreign Key)
+
+ - 	Adres (Address)
+
+ -    Telefon (Phone)
+
+ - 	Açıklama (Description)
+
+6. ***Yorumlar (Comments)***
+    
+ - 	ID (Primary Key)
+
+ - 	MekanID (Foreign Key)
+
+ - 	KullanıcıID (Foreign Key)
+
+ - 	YorumMetni (Comment Text)
+
+ - 	Tarih (Date)
+
+7. ***Etkinlikler (Events)***
+    
+ - 	ID (Primary Key)
+
+ - 	EtkinlikAdi (Event Name)
+
+-  	Tarih (Date)
+
+-  	İlçeID (Foreign Key)
+
+-  	Adres (Address)
+
+8. ***Puanlar (Ratings)***
+    
+-  	ID (Primary Key)
+
+-  	MekanID (Foreign Key)
+
+-  	KullanıcıID (Foreign Key)
+
+-  	Puan (Rating)
+
 
 ## İlişkiler
 
